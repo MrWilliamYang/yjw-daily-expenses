@@ -19,9 +19,12 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 /**
+ * 花销模块控制层
  * 
+ * @description ExpensesController.java
  * @author YangJianWei
- * @version $Id: ExpensesController.java, v 0.1 2018年10月12日 上午9:09:06 YangJianWei Exp $
+ * @date 2018年10月12日 上午9:09:06
+ * @version $Id: v 0.1
  */
 @RestController
 @Api(tags = "花销模块")

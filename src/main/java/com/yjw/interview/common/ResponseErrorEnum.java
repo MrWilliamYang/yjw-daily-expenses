@@ -1,8 +1,11 @@
 package com.yjw.interview.common;
 /**
  * 错误码对照表
+ * 
+ * @description RespHeaderErrorEnum.java,
  * @author YangJianWei
- * @version $Id: RespHeaderErrorEnum.java, v 0.1 2018年10月9日 下午3:59:01 YangJianWei Exp $
+ * @date 2018年10月9日 下午3:59:01
+ * @version $Id: v 0.1 
  */
 public enum ResponseErrorEnum {
     

@@ -12,8 +12,10 @@ import com.alibaba.druid.pool.DruidDataSource;
 /**
  * 数据源配置文件
  * 
+ * @description DataSourseConfig.java
  * @author YangJianWei
- * @version $Id: DataSourseConfig.java, v 0.1 2018年10月10日 上午10:25:39 YangJianWei Exp $
+ * @date 2018年10月10日 上午10:25:39
+ * @version $Id: v 0.1
  */
 @Configuration
 public class DataSourseConfig {

@@ -46,7 +46,8 @@ public class PersonController {
     @ApiOperation(value = "根据Id查询用户详情", notes = "根据Id查询用户详情")
     @RequestMapping(value = "/findPersonInfo", method = RequestMethod.POST)
     public BaseResponse findPersonInfo(@RequestBody @Validated FindPersonInfoReqVO reqVO) {
-        MdcUtil.setCallerUserMethod(reqVO.getId().toString(), reqVO.getId().toString(), "根据Id查询用户详情");
+        MdcUtil.setCallerUserMethod(reqVO.getId().toString(), reqVO.getId().toString(),
+            "根据Id查询用户详情");
         logger.info("到达控制层：调用查询用户详情服务");
         return personService.findPersonInfo(reqVO);
     }
