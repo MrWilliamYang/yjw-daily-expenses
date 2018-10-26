@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import com.yjw.interview.pojo.entity.PersonEntity;
+import com.yjw.interview.pojo.vo.UpdatePersonInfoReqVO;
 import com.yjw.interview.repository.BaseRepository;
 import com.yjw.interview.repository.IPersonRepository;
 import com.yjw.interview.utils.MapperUtils;
@@ -33,7 +34,7 @@ public class PersonRepositoryImpl extends BaseRepository implements IPersonRepos
         this.insertObject = new SimpleJdbcInsert(dataSource);
         insertObject.withTableName("person").usingGeneratedKeyColumns("id");
     }
-    
+
     /**
      * @see com.yjw.dailyexpenses.repository.IPersonRepository#save(com.yjw.dailyexpenses.pojo.entity.PersonEntity)
      */
@@ -56,6 +57,28 @@ public class PersonRepositoryImpl extends BaseRepository implements IPersonRepos
         } catch (Exception e) {
             return null;
         }
+    }
+
+    /**
+     * @see com.yjw.interview.repository.IPersonRepository#deletePerson(java.lang.Integer)
+     */
+    private static final String SQL_DELETE_PERSON = "DELETE FROM person WHERE id = ?";
+
+    @Override
+    public int deletePerson(Integer id) {
+        return jdbcTemplate.update(SQL_DELETE_PERSON, id);
+    }
+
+    /** 
+     * @see com.yjw.interview.repository.IPersonRepository#updatePersonInfo(com.yjw.interview.pojo.vo.UpdatePersonInfoReqVO)
+     */
+    private static final String SQL_UPDATE_PERSONINFO = "UPDATE person SET gender = ?, age = ?, tel = ?, name = ?, password = ?, avatar = ? WHERE id = ?";
+
+    @Override
+    public int updatePersonInfo(UpdatePersonInfoReqVO request) {
+        return jdbcTemplate.update(SQL_UPDATE_PERSONINFO, request.getGender(), request.getAge(),
+            request.getTel(), request.getName(), request.getPassword(), request.getAvatar(),
+            request.getId());
     }
 
 }

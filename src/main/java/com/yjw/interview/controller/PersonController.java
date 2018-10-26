@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yjw.interview.pojo.vo.BaseResponse;
+import com.yjw.interview.pojo.vo.DeletePersonReqVO;
 import com.yjw.interview.pojo.vo.FindPersonInfoReqVO;
 import com.yjw.interview.pojo.vo.PersonRegisterReqVO;
+import com.yjw.interview.pojo.vo.UpdatePersonInfoReqVO;
 import com.yjw.interview.service.IPersonService;
 import com.yjw.interview.utils.MdcUtil;
 
@@ -43,13 +45,29 @@ public class PersonController {
         return personService.personRegister(reqVO);
     }
 
-    @ApiOperation(value = "根据Id查询用户详情", notes = "根据Id查询用户详情")
+    @ApiOperation(value = "查询用户详情", notes = "查询用户详情")
     @RequestMapping(value = "/findPersonInfo", method = RequestMethod.POST)
     public BaseResponse findPersonInfo(@RequestBody @Validated FindPersonInfoReqVO reqVO) {
         MdcUtil.setCallerUserMethod(reqVO.getId().toString(), reqVO.getId().toString(),
-            "根据Id查询用户详情");
+            "查询用户详情");
         logger.info("到达控制层：调用查询用户详情服务");
         return personService.findPersonInfo(reqVO);
+    }
+
+    @ApiOperation(value = "修改用户信息", notes = "修改用户信息")
+    @RequestMapping(value = "/updatePersonInfo", method = RequestMethod.POST)
+    public BaseResponse updatePersonInfo(@RequestBody @Validated UpdatePersonInfoReqVO reqVO) {
+        MdcUtil.setCallerUserMethod(reqVO.getId().toString(), reqVO.getId().toString(), "修改用户信息");
+        logger.info("到达控制层：调用修改用户信息服务");
+        return personService.updatePersonInfo(reqVO);
+    }
+
+    @ApiOperation(value = "删除用户信息", notes = "删除用户信息")
+    @RequestMapping(value = "/deletePersonInfo", method = RequestMethod.POST)
+    public BaseResponse deletePersonInfo(@RequestBody @Validated DeletePersonReqVO reqVO) {
+        MdcUtil.setCallerUserMethod(reqVO.getId().toString(), reqVO.getId().toString(), "删除用户信息");
+        logger.info("到达控制层：调用删除用户信息服务");
+        return personService.deletePerson(reqVO);
     }
 
 }

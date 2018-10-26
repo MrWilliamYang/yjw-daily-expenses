@@ -1,11 +1,13 @@
 package com.yjw.interview.service;
 
 import com.yjw.interview.pojo.vo.BaseResponse;
+import com.yjw.interview.pojo.vo.DeletePersonReqVO;
 import com.yjw.interview.pojo.vo.FindPersonInfoReqVO;
 import com.yjw.interview.pojo.vo.PersonRegisterReqVO;
+import com.yjw.interview.pojo.vo.UpdatePersonInfoReqVO;
 
 /**
- * 人物服务类
+ * 用户服务类
  * 
  * @description IPersonService.java
  * @author YangJianWei
@@ -15,7 +17,7 @@ import com.yjw.interview.pojo.vo.PersonRegisterReqVO;
 public interface IPersonService {
 
     /**
-     * 人物注册服务
+     * 用户注册服务
      * 
      * @param request
      * @return
@@ -29,4 +31,20 @@ public interface IPersonService {
      * @return
      */
     BaseResponse findPersonInfo(FindPersonInfoReqVO request);
+
+    /**
+     * 修改用户信息
+     * 
+     * @param request
+     * @return
+     */
+    BaseResponse updatePersonInfo(UpdatePersonInfoReqVO request);
+
+    /**
+     * 删除用户
+     * 
+     * @param request
+     * @return
+     */
+    BaseResponse deletePerson(DeletePersonReqVO request);
 }

@@ -1,6 +1,7 @@
 package com.yjw.interview.repository;
 
 import com.yjw.interview.pojo.entity.PersonEntity;
+import com.yjw.interview.pojo.vo.UpdatePersonInfoReqVO;
 
 /**
  * 人物数据访问层
@@ -13,4 +14,8 @@ public interface IPersonRepository {
     int savePerson(PersonEntity personEntity);
 
     PersonEntity findPersonInfo(Integer id); 
+    
+    int deletePerson(Integer id);
+    
+    int updatePersonInfo(UpdatePersonInfoReqVO request);
 }

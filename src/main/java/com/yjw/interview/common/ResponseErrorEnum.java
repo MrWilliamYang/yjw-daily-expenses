@@ -12,6 +12,8 @@ public enum ResponseErrorEnum {
     GENERAL_ERROR("-1","通用错误"),
     SYSYTEM_UNKNOW("900000", "系统未知错误"),
     DATE_ADD_WRONG("900201", "数据添加失败"),
+    DATE_UPDATE_WRONG("900202", "数据修改失败"),
+    DATE_DELETE_WRONG("900203", "数据删除失败"),
     PARAM_CHECK_FAILD("900101", "参数校验失败"),
     DATA_NOT_EXIST("900200", "数据不存在"),
     FEIGN_FAIL("900102","Feign服务调用异常"),
