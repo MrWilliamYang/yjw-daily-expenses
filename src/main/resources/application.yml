@@ -1,0 +1,13 @@
+#配置本地数据源
+spring:
+  datasource:    
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/daily_expenses?useUnicode=true&characterEncoding=utf8
+    driverClassName: com.mysql.jdbc.Driverspring
+    username: root
+    password: f19951007f
+    
+#日志路径
+logging:
+  path: /data/log
+    
