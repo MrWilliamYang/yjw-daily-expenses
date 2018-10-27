@@ -40,7 +40,7 @@ public class PersonController {
     @ApiOperation(value = "注册用户", notes = "注册用户")
     @RequestMapping(value = "/personRegist", method = RequestMethod.POST)
     public BaseResponse personRegist(@RequestBody @Validated PersonRegisterReqVO reqVO) {
-        MdcUtil.setCallerUserMethod(reqVO.getName(), reqVO.getAvatar(), "注册用户");
+        MdcUtil.setCallerUserMethod(reqVO.getName(), reqVO.getName(), "注册用户");
         logger.info("到达控制层：调用注册服务");
         return personService.personRegister(reqVO);
     }
@@ -48,8 +48,7 @@ public class PersonController {
     @ApiOperation(value = "查询用户详情", notes = "查询用户详情")
     @RequestMapping(value = "/findPersonInfo", method = RequestMethod.POST)
     public BaseResponse findPersonInfo(@RequestBody @Validated FindPersonInfoReqVO reqVO) {
-        MdcUtil.setCallerUserMethod(reqVO.getId().toString(), reqVO.getId().toString(),
-            "查询用户详情");
+        MdcUtil.setCallerUserMethod(reqVO.getId().toString(), reqVO.getId().toString(), "查询用户详情");
         logger.info("到达控制层：调用查询用户详情服务");
         return personService.findPersonInfo(reqVO);
     }
@@ -57,7 +56,7 @@ public class PersonController {
     @ApiOperation(value = "修改用户信息", notes = "修改用户信息")
     @RequestMapping(value = "/updatePersonInfo", method = RequestMethod.POST)
     public BaseResponse updatePersonInfo(@RequestBody @Validated UpdatePersonInfoReqVO reqVO) {
-        MdcUtil.setCallerUserMethod(reqVO.getId().toString(), reqVO.getId().toString(), "修改用户信息");
+        MdcUtil.setCallerUserMethod(reqVO.getName(), reqVO.getName(), "修改用户信息");
         logger.info("到达控制层：调用修改用户信息服务");
         return personService.updatePersonInfo(reqVO);
     }

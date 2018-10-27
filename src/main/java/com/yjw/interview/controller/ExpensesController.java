@@ -39,7 +39,7 @@ public class ExpensesController {
     @ApiOperation(value = "添加花销", notes = "添加花销")
     @RequestMapping(value = "/insertExpenses", method = RequestMethod.POST)
     public BaseResponse insertExpenses(@RequestBody @Validated ExpensesReqVO reqVO) {
-        MdcUtil.setCallerUserMethod(reqVO.getName(), reqVO.getAmount().toString(), "添加花销");
+        MdcUtil.setCallerUserMethod(reqVO.getName(), reqVO.getName(), "添加花销");
         return expensesService.insertExpenses(reqVO);
     }
 
