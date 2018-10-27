@@ -34,10 +34,10 @@ public class PersonController {
     @Autowired
     private IPersonService personService;
 
-    @ApiOperation(value = "注册用户", notes = "注册用户")
+    @ApiOperation(value = "添加用户", notes = "添加用户")
     @RequestMapping(value = "/personRegist", method = RequestMethod.POST)
     public BaseResponse personRegist(@RequestBody @Validated PersonRegisterReqVO reqVO) {
-        MdcUtil.setCallerUserMethod(reqVO.getName(), reqVO.getName(), "注册用户");
+        MdcUtil.setCallerUserMethod(reqVO.getName(), reqVO.getName(), "添加用户");
         return personService.personRegister(reqVO);
     }
 
@@ -55,14 +55,14 @@ public class PersonController {
         return personService.updatePersonInfo(reqVO);
     }
 
-    @ApiOperation(value = "删除用户信息", notes = "删除用户信息")
+    @ApiOperation(value = "删除用户", notes = "删除用户")
     @RequestMapping(value = "/deletePersonInfo", method = RequestMethod.POST)
     public BaseResponse deletePersonInfo(@RequestBody @Validated DeletePersonReqVO reqVO) {
-        MdcUtil.setCallerUserMethod(reqVO.getId().toString(), reqVO.getId().toString(), "删除用户信息");
+        MdcUtil.setCallerUserMethod(reqVO.getId().toString(), reqVO.getId().toString(), "删除用户");
         return personService.deletePerson(reqVO);
     }
 
-    @ApiOperation(value = "查询所有用户", notes = "查询所有用户")
+    @ApiOperation(value = "查询用户列表", notes = "查询用户列表")
     @RequestMapping(value = "/findAllPersonList", method = RequestMethod.POST)
     public BaseResponse findAllPersonList() {
         return personService.findAllPersonList();

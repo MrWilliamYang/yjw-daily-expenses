@@ -46,19 +46,18 @@ public class ExpensesController {
         return expensesService.findAllExpensesList();
     }
 
-    @ApiOperation(value = "根据人物Id查询花销列表", notes = "根据人物Id查询花销列表")
+    @ApiOperation(value = "根据用户Id查花销列表", notes = "根据用户Id查花销列表")
     @RequestMapping(value = "/findAllExpensesListBy", method = RequestMethod.POST)
     public BaseResponse findAllExpensesListBy(@RequestBody @Validated FindAllExpensesListByReqVO reqVO) {
         MdcUtil.setCallerUserMethod(reqVO.getPersonId().toString(), reqVO.getPersonId().toString(),
-            "根据人物 Id查询花销列表");
+            "根据用户Id查花销列表");
         return expensesService.findAllExpensesListBy(reqVO);
     }
 
-    @ApiOperation(value = "根据花销Id删除花销", notes = "根据花销Id删除花销")
+    @ApiOperation(value = "删除花销", notes = "删除花销")
     @RequestMapping(value = "/deleteExpenses", method = RequestMethod.POST)
     public BaseResponse deleteExpenses(@RequestBody @Validated DeleteExpensesReqVO reqVO) {
-        MdcUtil.setCallerUserMethod(reqVO.getId().toString(), reqVO.getId().toString(),
-            "根据花销Id删除花销");
+        MdcUtil.setCallerUserMethod(reqVO.getId().toString(), reqVO.getId().toString(), "删除花销");
         return expensesService.deleteExpenses(reqVO);
     }
 }
