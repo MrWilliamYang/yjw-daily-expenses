@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.yjw.interview.common.ResponseErrorEnum;
 import com.yjw.interview.pojo.entity.ExpensesEntity;
 import com.yjw.interview.pojo.vo.BaseResponse;
+import com.yjw.interview.pojo.vo.DeleteExpensesReqVO;
 import com.yjw.interview.pojo.vo.ExpensesReqVO;
 import com.yjw.interview.pojo.vo.FindAllExpensesListByReqVO;
 import com.yjw.interview.repository.IExpensesRepository;
@@ -73,5 +74,17 @@ public class ExpensesServiceImpl implements IExpensesService {
         }
         logger.info("查询成功");
         return BaseResponse.success(entitys);
+    }
+
+    @Override
+    public BaseResponse deleteExpenses(DeleteExpensesReqVO request) {
+        Integer expensesId = request.getId();
+        int num = expensesRepository.deleteExpenses(expensesId);
+        if (num < 1 || num > 1) {
+            logger.warn("删除失败,数据删除错误,Id={}", expensesId);
+            return BaseResponse.error(ResponseErrorEnum.DATE_DELETE_WRONG);
+        }
+        logger.info("数据删除成功, 删除{}条记录！", num);
+        return BaseResponse.success();
     }
 }

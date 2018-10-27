@@ -1,6 +1,7 @@
 package com.yjw.interview.service.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -106,5 +107,19 @@ public class PersonServiceImpl implements IPersonService {
         }
         logger.info("数据删除成功, 删除{}条记录！", num);
         return BaseResponse.success();
+    }
+
+    /**
+     * @see com.yjw.interview.service.IPersonService#findAllPersonList()
+     */
+    @Override
+    public BaseResponse findAllPersonList() {
+        List<PersonEntity> entitys = personRepository.findAllPersonList();
+        if (entitys.isEmpty() || entitys == null) {
+            logger.warn("数据不存在");
+            return BaseResponse.error(ResponseErrorEnum.DATA_NOT_EXIST);
+        }
+        logger.info("查询成功");
+        return BaseResponse.success(entitys);
     }
 }

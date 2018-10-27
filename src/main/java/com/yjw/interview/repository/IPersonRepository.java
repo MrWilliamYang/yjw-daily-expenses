@@ -1,5 +1,7 @@
 package com.yjw.interview.repository;
 
+import java.util.List;
+
 import com.yjw.interview.pojo.entity.PersonEntity;
 import com.yjw.interview.pojo.vo.UpdatePersonInfoReqVO;
 
@@ -18,4 +20,6 @@ public interface IPersonRepository {
     int deletePerson(Integer id);
     
     int updatePersonInfo(UpdatePersonInfoReqVO request);
+    
+    List<PersonEntity> findAllPersonList();
 }

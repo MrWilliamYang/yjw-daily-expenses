@@ -1,7 +1,5 @@
 package com.yjw.interview.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yjw.interview.pojo.vo.BaseResponse;
+import com.yjw.interview.pojo.vo.DeleteExpensesReqVO;
 import com.yjw.interview.pojo.vo.ExpensesReqVO;
 import com.yjw.interview.pojo.vo.FindAllExpensesListByReqVO;
 import com.yjw.interview.service.IExpensesService;
@@ -30,8 +29,6 @@ import io.swagger.annotations.ApiOperation;
 @Api(tags = "花销模块")
 @RequestMapping("/expenses")
 public class ExpensesController {
-    @SuppressWarnings("unused")
-    private static Logger    logger = LoggerFactory.getLogger(ExpensesController.class);
 
     @Autowired
     private IExpensesService expensesService;
@@ -55,5 +52,13 @@ public class ExpensesController {
         MdcUtil.setCallerUserMethod(reqVO.getPersonId().toString(), reqVO.getPersonId().toString(),
             "根据人物 Id查询花销列表");
         return expensesService.findAllExpensesListBy(reqVO);
+    }
+
+    @ApiOperation(value = "根据花销Id删除花销", notes = "根据花销Id删除花销")
+    @RequestMapping(value = "/deleteExpenses", method = RequestMethod.POST)
+    public BaseResponse deleteExpenses(@RequestBody @Validated DeleteExpensesReqVO reqVO) {
+        MdcUtil.setCallerUserMethod(reqVO.getId().toString(), reqVO.getId().toString(),
+            "根据花销Id删除花销");
+        return expensesService.deleteExpenses(reqVO);
     }
 }

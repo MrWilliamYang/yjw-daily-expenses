@@ -19,4 +19,6 @@ public interface IExpensesRepository {
     List<ExpensesEntity> findAllExpensesList();
 
     List<ExpensesEntity> findAllExpensesListBy(int personId);
+    
+    int deleteExpenses(int expensesId);
 }

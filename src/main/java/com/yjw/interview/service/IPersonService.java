@@ -47,4 +47,11 @@ public interface IPersonService {
      * @return
      */
     BaseResponse deletePerson(DeletePersonReqVO request);
+    
+    /**
+     * 查询所有用户列表
+     * 
+     * @return
+     */
+    BaseResponse findAllPersonList();
 }

@@ -1,5 +1,6 @@
 package com.yjw.interview.repository.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.sql.DataSource;
@@ -79,6 +80,16 @@ public class PersonRepositoryImpl extends BaseRepository implements IPersonRepos
         return jdbcTemplate.update(SQL_UPDATE_PERSONINFO, request.getGender(), request.getAge(),
             request.getTel(), request.getName(), request.getPassword(), request.getAvatar(),
             request.getId());
+    }
+
+    /**
+     * @see com.yjw.interview.repository.IPersonRepository#findAllPersonList()
+     */
+    private static final String SQL_FINDALL_PERSONLIST = "SELECT * FROM person";
+    
+    @Override
+    public List<PersonEntity> findAllPersonList() {
+        return jdbcTemplate.query(SQL_FINDALL_PERSONLIST, rowMapper);
     }
 
 }

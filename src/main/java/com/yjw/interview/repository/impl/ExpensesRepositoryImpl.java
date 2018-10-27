@@ -64,4 +64,14 @@ public class ExpensesRepositoryImpl extends BaseRepository implements IExpensesR
         return jdbcTemplate.query(SQL_FINDALL_EXPENSESlIST_BY, rowMapper);
     }
 
+    /**
+     * @see com.yjw.interview.repository.IExpensesRepository#deleteExpenses(int)
+     */
+    private static final String SQL_DELETE_EXPENSES = "delete FROM expenses WHERE id = ?";
+    
+    @Override
+    public int deleteExpenses(int expensesId) {
+        return jdbcTemplate.update(SQL_DELETE_EXPENSES, expensesId);
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.yjw.interview.service;
 
 import com.yjw.interview.pojo.vo.BaseResponse;
+import com.yjw.interview.pojo.vo.DeleteExpensesReqVO;
 import com.yjw.interview.pojo.vo.ExpensesReqVO;
 import com.yjw.interview.pojo.vo.FindAllExpensesListByReqVO;
 
@@ -37,5 +38,13 @@ public interface IExpensesService {
      * @return
      */
     BaseResponse findAllExpensesListBy(FindAllExpensesListByReqVO request);
+    
+    /**
+     * 根据花销id删除花销
+     * 
+     * @param request
+     * @return
+     */
+    BaseResponse deleteExpenses(DeleteExpensesReqVO request);
     
 }
