@@ -4,6 +4,7 @@ import com.yjw.interview.pojo.vo.BaseResponse;
 import com.yjw.interview.pojo.vo.DeleteExpensesReqVO;
 import com.yjw.interview.pojo.vo.ExpensesReqVO;
 import com.yjw.interview.pojo.vo.FindAllExpensesListByReqVO;
+import com.yjw.interview.pojo.vo.FindAmountByPersonIdReqVO;
 
 /**
  * 日常花销服务类
@@ -22,7 +23,7 @@ public interface IExpensesService {
      * @return
      */
     BaseResponse insertExpenses(ExpensesReqVO request);
-    
+
     /**
      * 查询所有日常开销列表
      * 
@@ -30,7 +31,7 @@ public interface IExpensesService {
      * @return
      */
     BaseResponse findAllExpensesList();
-    
+
     /**
      * 根据用户id查询花销列表
      * 
@@ -38,7 +39,7 @@ public interface IExpensesService {
      * @return
      */
     BaseResponse findAllExpensesListBy(FindAllExpensesListByReqVO request);
-    
+
     /**
      * 根据花销id删除花销
      * 
@@ -46,5 +47,13 @@ public interface IExpensesService {
      * @return
      */
     BaseResponse deleteExpenses(DeleteExpensesReqVO request);
-    
+
+    /**
+     * 根据用户id查询花销合计
+     * 
+     * @param request
+     * @return
+     */
+    BaseResponse findAmountByPersonId(FindAmountByPersonIdReqVO request);
+
 }

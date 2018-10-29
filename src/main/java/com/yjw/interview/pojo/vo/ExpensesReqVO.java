@@ -35,13 +35,13 @@ public class ExpensesReqVO {
      * 单价
      */
     @NotNull(message = "单价不能为空")
-    private Double  price;
+    private String  price;
 
     /**
      * 金额（数量×单价）
      */
     @NotNull(message = "金额不能为空")
-    private Double  amount;
+    private String  amount;
 
     /**
      * Getter method for property <tt>personId</tt>.
@@ -102,7 +102,7 @@ public class ExpensesReqVO {
      * 
      * @return property value of price
      */
-    public Double getPrice() {
+    public String getPrice() {
         return price;
     }
 
@@ -111,7 +111,7 @@ public class ExpensesReqVO {
      * 
      * @param price value to be assigned to property price
      */
-    public void setPrice(Double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -120,7 +120,7 @@ public class ExpensesReqVO {
      * 
      * @return property value of amount
      */
-    public Double getAmount() {
+    public String getAmount() {
         return amount;
     }
 
@@ -129,7 +129,7 @@ public class ExpensesReqVO {
      * 
      * @param amount value to be assigned to property amount
      */
-    public void setAmount(Double amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 

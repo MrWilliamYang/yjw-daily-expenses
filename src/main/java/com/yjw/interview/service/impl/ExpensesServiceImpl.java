@@ -14,6 +14,7 @@ import com.yjw.interview.pojo.vo.BaseResponse;
 import com.yjw.interview.pojo.vo.DeleteExpensesReqVO;
 import com.yjw.interview.pojo.vo.ExpensesReqVO;
 import com.yjw.interview.pojo.vo.FindAllExpensesListByReqVO;
+import com.yjw.interview.pojo.vo.FindAmountByPersonIdReqVO;
 import com.yjw.interview.repository.IExpensesRepository;
 import com.yjw.interview.service.IExpensesService;
 
@@ -86,5 +87,17 @@ public class ExpensesServiceImpl implements IExpensesService {
         }
         logger.info("数据删除成功, 删除{}条记录！", num);
         return BaseResponse.success();
+    }
+
+    @Override
+    public BaseResponse findAmountByPersonId(FindAmountByPersonIdReqVO request) {
+        Integer personId = request.getPersonId();
+        List<String> lists = expensesRepository.findAmountByPersonId(personId);
+        if (lists.isEmpty() || lists == null) {
+            logger.warn("查询花销合计失败,personId={}", personId);
+            return BaseResponse.error(ResponseErrorEnum.DATA_NOT_EXIST);
+        }
+        logger.info("查询成功");
+        return BaseResponse.success(lists);
     }
 }

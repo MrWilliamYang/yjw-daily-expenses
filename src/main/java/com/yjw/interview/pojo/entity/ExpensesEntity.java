@@ -53,19 +53,19 @@ public class ExpensesEntity {
      * 单价
      */
     @Column(name = "price")
-    private Double  price;
+    private String  price;
 
     /**
      * 金额（数量×单价）
      */
     @Column(name = "amount")
-    private Double  amount;
+    private String  amount;
 
     /**
      * 创建时间
      */
     @Column(name = "create_time")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date    createTime;
 
@@ -73,7 +73,7 @@ public class ExpensesEntity {
      * 修改时间
      */
     @Column(name = "update_time")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date    updateTime;
 
@@ -154,7 +154,7 @@ public class ExpensesEntity {
      * 
      * @return property value of price
      */
-    public Double getPrice() {
+    public String getPrice() {
         return price;
     }
 
@@ -163,7 +163,7 @@ public class ExpensesEntity {
      * 
      * @param price value to be assigned to property price
      */
-    public void setPrice(Double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -172,7 +172,7 @@ public class ExpensesEntity {
      * 
      * @return property value of amount
      */
-    public Double getAmount() {
+    public String getAmount() {
         return amount;
     }
 
@@ -181,7 +181,7 @@ public class ExpensesEntity {
      * 
      * @param amount value to be assigned to property amount
      */
-    public void setAmount(Double amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 

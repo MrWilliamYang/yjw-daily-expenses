@@ -11,6 +11,7 @@ import com.yjw.interview.pojo.vo.BaseResponse;
 import com.yjw.interview.pojo.vo.DeleteExpensesReqVO;
 import com.yjw.interview.pojo.vo.ExpensesReqVO;
 import com.yjw.interview.pojo.vo.FindAllExpensesListByReqVO;
+import com.yjw.interview.pojo.vo.FindAmountByPersonIdReqVO;
 import com.yjw.interview.service.IExpensesService;
 import com.yjw.interview.utils.MdcUtil;
 
@@ -59,5 +60,13 @@ public class ExpensesController {
     public BaseResponse deleteExpenses(@RequestBody @Validated DeleteExpensesReqVO reqVO) {
         MdcUtil.setCallerUserMethod(reqVO.getId().toString(), reqVO.getId().toString(), "删除花销");
         return expensesService.deleteExpenses(reqVO);
+    }
+
+    @ApiOperation(value = "根据用户Id查花销合计", notes = "根据用户Id查花销合计")
+    @RequestMapping(value = "/findAmountByPersonId", method = RequestMethod.POST)
+    public BaseResponse findAmountByPersonId(@RequestBody @Validated FindAmountByPersonIdReqVO reqVO) {
+        MdcUtil.setCallerUserMethod(reqVO.getPersonId().toString(), reqVO.getPersonId().toString(),
+            "根据用户Id查花销合计");
+        return expensesService.findAmountByPersonId(reqVO);
     }
 }

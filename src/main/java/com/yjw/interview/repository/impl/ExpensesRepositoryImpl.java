@@ -75,4 +75,15 @@ public class ExpensesRepositoryImpl extends BaseRepository implements IExpensesR
         return jdbcTemplate.update(SQL_DELETE_EXPENSES, expensesId);
     }
 
+    /**
+     * @see com.yjw.interview.repository.IExpensesRepository#findAmountByPersonId(int)
+     */
+    private static final String SQL_FIND_AMOUNT_BY_PERSONID = "SELECT SUM(amount) FROM expenses WHERE person_id = ?";
+
+    @Override
+    public List<String> findAmountByPersonId(int personId) {
+        return jdbcTemplate.queryForList(SQL_FIND_AMOUNT_BY_PERSONID, new Object[] { personId },
+            String.class);
+    }
+
 }
