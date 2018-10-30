@@ -47,7 +47,7 @@ public class ExpensesServiceImpl implements IExpensesService {
         entity.setUpdateTime(date);
         int num = expensesRepository.saveExpenses(entity);
         if (num < 1 || num == 0) {
-            logger.warn("数据不存在");
+            logger.warn("数据添加失败，请重新添加，Name={}", request.getName());
             return BaseResponse.error(ResponseErrorEnum.DATA_NOT_EXIST);
         }
         logger.info("添加成功");
@@ -58,7 +58,7 @@ public class ExpensesServiceImpl implements IExpensesService {
     public BaseResponse findAllExpensesList() {
         List<ExpensesEntity> entitys = expensesRepository.findAllExpensesList();
         if (entitys.isEmpty() || entitys == null) {
-            logger.warn("数据不存在");
+            logger.warn("查询花销列表失败，数据不存在");
             return BaseResponse.error(ResponseErrorEnum.DATA_NOT_EXIST);
         }
         logger.info("查询成功");
@@ -70,7 +70,7 @@ public class ExpensesServiceImpl implements IExpensesService {
         Integer personId = request.getPersonId();
         List<ExpensesEntity> entitys = expensesRepository.findAllExpensesListBy(personId);
         if (entitys.isEmpty() || entitys == null) {
-            logger.warn("数据不存在");
+            logger.warn("根据id查询花销列表失败，数据不存在，personId={}", request.getPersonId());
             return BaseResponse.error(ResponseErrorEnum.DATA_NOT_EXIST);
         }
         logger.info("查询成功");
@@ -82,10 +82,10 @@ public class ExpensesServiceImpl implements IExpensesService {
         Integer expensesId = request.getId();
         int num = expensesRepository.deleteExpenses(expensesId);
         if (num < 1 || num > 1) {
-            logger.warn("删除失败,数据删除错误,Id={}", expensesId);
+            logger.warn("删除失败,数据删除错误,Id={},num={}", expensesId, num);
             return BaseResponse.error(ResponseErrorEnum.DATE_DELETE_WRONG);
         }
-        logger.info("数据删除成功, 删除{}条记录！", num);
+        logger.info("数据删除成功, 删除{}条记录！删除id为{}", num, expensesId);
         return BaseResponse.success();
     }
 
@@ -105,7 +105,7 @@ public class ExpensesServiceImpl implements IExpensesService {
     public BaseResponse deleteAllExpenses() {
         int num = expensesRepository.deleteAllExpenses();
         if (num < 1 || num == 0) {
-            logger.warn("删除失败,数据删除错误");
+            logger.warn("删除失败,数据删除错误, num={}", num);
             return BaseResponse.error(ResponseErrorEnum.DATE_DELETE_WRONG);
         }
         logger.info("数据删除成功, 删除{}条记录！", num);
