@@ -86,4 +86,14 @@ public class ExpensesRepositoryImpl extends BaseRepository implements IExpensesR
             String.class);
     }
 
+    /**
+     * @see com.yjw.interview.repository.IExpensesRepository#deleteAllExpenses()
+     */
+    private static final String SQL_DELETEALL_EXPENSES = "DELETE FROM expenses";
+    
+    @Override
+    public int deleteAllExpenses() {
+        return jdbcTemplate.update(SQL_DELETEALL_EXPENSES);
+    }
+
 }

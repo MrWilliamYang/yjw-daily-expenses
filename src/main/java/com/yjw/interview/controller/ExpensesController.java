@@ -55,10 +55,11 @@ public class ExpensesController {
         return expensesService.findAllExpensesListBy(reqVO);
     }
 
-    @ApiOperation(value = "删除花销", notes = "删除花销")
+    @ApiOperation(value = "根据花销id删除花销", notes = "根据花销id删除花销")
     @RequestMapping(value = "/deleteExpenses", method = RequestMethod.POST)
     public BaseResponse deleteExpenses(@RequestBody @Validated DeleteExpensesReqVO reqVO) {
-        MdcUtil.setCallerUserMethod(reqVO.getId().toString(), reqVO.getId().toString(), "删除花销");
+        MdcUtil.setCallerUserMethod(reqVO.getId().toString(), reqVO.getId().toString(),
+            "根据花销id删除花销");
         return expensesService.deleteExpenses(reqVO);
     }
 
@@ -68,5 +69,11 @@ public class ExpensesController {
         MdcUtil.setCallerUserMethod(reqVO.getPersonId().toString(), reqVO.getPersonId().toString(),
             "根据用户Id查花销合计");
         return expensesService.findAmountByPersonId(reqVO);
+    }
+
+    @ApiOperation(value = "删除所有花销", notes = "删除所有花销")
+    @RequestMapping(value = "/deleteAllExpenses", method = RequestMethod.POST)
+    public BaseResponse deleteAllExpenses() {
+        return expensesService.deleteAllExpenses();
     }
 }

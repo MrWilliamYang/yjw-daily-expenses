@@ -55,5 +55,11 @@ public interface IExpensesService {
      * @return
      */
     BaseResponse findAmountByPersonId(FindAmountByPersonIdReqVO request);
-
+    
+    /**
+     * 删除所有花销
+     * 
+     * @return
+     */
+    BaseResponse deleteAllExpenses();
 }

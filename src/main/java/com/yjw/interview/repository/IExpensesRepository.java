@@ -23,4 +23,6 @@ public interface IExpensesRepository {
     int deleteExpenses(int expensesId);
 
     List<String> findAmountByPersonId(int personId);
+    
+    int deleteAllExpenses();
 }

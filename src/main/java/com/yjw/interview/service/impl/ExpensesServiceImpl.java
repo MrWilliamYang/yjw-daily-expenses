@@ -100,4 +100,15 @@ public class ExpensesServiceImpl implements IExpensesService {
         logger.info("查询成功");
         return BaseResponse.success(lists);
     }
+
+    @Override
+    public BaseResponse deleteAllExpenses() {
+        int num = expensesRepository.deleteAllExpenses();
+        if (num < 1 || num == 0) {
+            logger.warn("删除失败,数据删除错误");
+            return BaseResponse.error(ResponseErrorEnum.DATE_DELETE_WRONG);
+        }
+        logger.info("数据删除成功, 删除{}条记录！", num);
+        return BaseResponse.success();
+    }
 }
