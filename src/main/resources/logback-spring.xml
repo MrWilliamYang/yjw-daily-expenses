@@ -25,7 +25,7 @@
             </fileNamePattern>
             <!--日志文件保留天数 -->
             <maxHistory>1</maxHistory>
-            <!-- 日志文件大小  -->
+            <!--日志文件大小-->
             <totalSizeCap>50MB</totalSizeCap>
         </rollingPolicy>
         <encoder>
