@@ -5,18 +5,18 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.yjw</groupId>
-	<artifactId>com.yjw.interview</artifactId>
+	<artifactId>com.yjw.expenses</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>yjw-interview-questions</name>
+	<name>yjw-daily-expenses</name>
 	<description>Study project for Spring Boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.3.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 
 	<properties>
@@ -26,6 +26,7 @@
 	</properties>
 
 	<dependencies>
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>

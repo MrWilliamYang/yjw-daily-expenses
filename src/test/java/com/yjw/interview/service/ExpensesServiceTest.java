@@ -3,12 +3,13 @@ package com.yjw.interview.service;
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.yjw.interview.common.ResponseErrorEnum;
-import com.yjw.interview.pojo.vo.BaseResponse;
-import com.yjw.interview.pojo.vo.DeleteExpensesReqVO;
-import com.yjw.interview.pojo.vo.ExpensesReqVO;
-import com.yjw.interview.pojo.vo.FindAllExpensesListByReqVO;
-import com.yjw.interview.pojo.vo.FindAmountByPersonIdReqVO;
+import com.yjw.expenses.common.ResponseErrorEnum;
+import com.yjw.expenses.pojo.vo.BaseResponse;
+import com.yjw.expenses.pojo.vo.DeleteExpensesReqVO;
+import com.yjw.expenses.pojo.vo.ExpensesReqVO;
+import com.yjw.expenses.pojo.vo.FindAllExpensesListByReqVO;
+import com.yjw.expenses.pojo.vo.FindAmountByPersonIdReqVO;
+import com.yjw.expenses.service.IExpensesService;
 
 /**
  * 花销测试类

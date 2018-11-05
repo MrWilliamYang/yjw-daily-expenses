@@ -4,13 +4,14 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.yjw.interview.YjwInterviewQuestionsApplicationTests;
-import com.yjw.interview.common.ResponseErrorEnum;
-import com.yjw.interview.pojo.vo.BaseResponse;
-import com.yjw.interview.pojo.vo.DeletePersonReqVO;
-import com.yjw.interview.pojo.vo.FindPersonInfoReqVO;
-import com.yjw.interview.pojo.vo.PersonRegisterReqVO;
-import com.yjw.interview.pojo.vo.UpdatePersonInfoReqVO;
+import com.yjw.expenses.YjwInterviewQuestionsApplicationTests;
+import com.yjw.expenses.common.ResponseErrorEnum;
+import com.yjw.expenses.pojo.vo.BaseResponse;
+import com.yjw.expenses.pojo.vo.DeletePersonReqVO;
+import com.yjw.expenses.pojo.vo.FindPersonInfoReqVO;
+import com.yjw.expenses.pojo.vo.PersonRegisterReqVO;
+import com.yjw.expenses.pojo.vo.UpdatePersonInfoReqVO;
+import com.yjw.expenses.service.IPersonService;
 
 /**
  * 人物服务测试类
