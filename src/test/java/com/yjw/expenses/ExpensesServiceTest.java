@@ -1,4 +1,4 @@
-package com.yjw.interview.service;
+package com.yjw.expenses;
 
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;

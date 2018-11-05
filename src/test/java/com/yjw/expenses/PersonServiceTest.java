@@ -1,10 +1,9 @@
-package com.yjw.interview.service;
+package com.yjw.expenses;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.yjw.expenses.YjwInterviewQuestionsApplicationTests;
 import com.yjw.expenses.common.ResponseErrorEnum;
 import com.yjw.expenses.pojo.vo.BaseResponse;
 import com.yjw.expenses.pojo.vo.DeletePersonReqVO;
@@ -21,7 +20,7 @@ import com.yjw.expenses.service.IPersonService;
  * @date 2018年10月9日 下午4:25:32
  * @version $Id: v 0.1
  */
-public class PersonServiceTest extends YjwInterviewQuestionsApplicationTests {
+public class PersonServiceTest {
 
     @Autowired
     IPersonService personService;
@@ -124,9 +123,9 @@ public class PersonServiceTest extends YjwInterviewQuestionsApplicationTests {
         System.out.println(result);
         Assert.assertEquals(BaseResponse.SUCCESS_CODE, result.getCode());
 
-//        // 查询失败
-//        BaseResponse result1 = personService.findAllPersonList();
-//        System.out.println(result1);
-//        Assert.assertEquals(ResponseErrorEnum.DATA_NOT_EXIST.getErrorCode(), result1.getCode());
+        //        // 查询失败
+        //        BaseResponse result1 = personService.findAllPersonList();
+        //        System.out.println(result1);
+        //        Assert.assertEquals(ResponseErrorEnum.DATA_NOT_EXIST.getErrorCode(), result1.getCode());
     }
 }
